@@ -1,9 +1,10 @@
 #ifndef MATRIX3D_VECTOR3D_H
 #define MATRIX3D_VECTOR3D_H
 
-#include "iostream"
+#include "Matrix3D.h"
 
-class Vector3D {
+class Vector3D
+{
 private:
     double x, y, z;
 public:
@@ -31,11 +32,19 @@ public:
 
     Vector3D operator-(const Vector3D &v1) const;
 
-    Vector3D operator*(const Vector3D &v1) const;
+    double operator*(const Vector3D &v1) const;
 
     Vector3D operator*(const double &scale) const;
 
 };
+
+std::ostream &operator<<(std::ostream &os, const Vector3D &v);
+
+Vector3D operator*(const Matrix3D &m, const Vector3D &v);
+
+std::istream &operator>>(std::istream &is, Vector3D &v);
+
+Vector3D operator*(const double &scale, const Vector3D &v);
 
 
 #endif //MATRIX3D_VECTOR3D_H
